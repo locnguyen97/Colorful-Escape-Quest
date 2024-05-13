@@ -60,6 +60,7 @@ public class ObjectMoveByDrag : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if(target == null) return;
         if (isPickup)
         {
             if (collision.transform.GetComponent<Target>() && target.transform == collision.transform)

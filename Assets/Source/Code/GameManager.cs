@@ -98,12 +98,16 @@ public class GameManager : MonoBehaviour
                 if(t.GetComponent<ObjectMoveByDrag>())
                     x.Add(t);
             }
-            Collider2D targetObject = x[0];
-            if (targetObject && targetObject.GetComponent<ObjectMoveByDrag>() != null)
+
+            if (x.Count > 0)
             {
-                selectedObject = targetObject.GetComponent<ObjectMoveByDrag>();
-                selectedObject.PickUp();
-                offset = selectedObject.transform.position - mousePosition;
+                Collider2D targetObject = x[0];
+                if (targetObject && targetObject.GetComponent<ObjectMoveByDrag>() != null)
+                {
+                    selectedObject = targetObject.GetComponent<ObjectMoveByDrag>();
+                    selectedObject.PickUp();
+                    offset = selectedObject.transform.position - mousePosition;
+                }
             }
         }
         if (selectedObject)
